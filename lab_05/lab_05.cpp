@@ -7,42 +7,41 @@ using namespace std;
 int main() {
     string inputFile, outputFile;
     
-    cout << "Введите имя входного файла: ";
+    cout << "input file name: ";
     cin >> inputFile;
     
-    cout << "Введите имя выходного файла: ";
+    cout << "output file name: ";
     cin >> outputFile;
-    
-    ofstream outFile(outputFile);
-    if (!outFile) {
-        cout << "Ошибка создания выходного файла!" << endl;
-        return 1;
-    }
     
     ifstream inFile(inputFile);
     if (!inFile) {
-        cout << "Ошибка открытия входного файла!" << endl;
+        cout << "error (opening input file)" << endl;
         return 1;
     }
     
-    cout << "\nСодержимое входного файла:\n";
-    string line, prevLine = "";
-    bool hasContent = false;
+    ofstream outFile(outputFile);
+    if (!outFile) {
+        cout << "error (creating output file)" << endl;
+        return 1;
+    }
     
+    cout << "\ninput file content:\n";
+    string line, prevLine = "";
+    bool firstLine = true;
     while (getline(inFile, line)) {
         cout << line << endl;
         
-        if (line != prevLine) {
+        if (firstLine || line != prevLine) {
             outFile << line << endl;
-            prevLine = line;
-            hasContent = true;
         }
+        prevLine = line;
+        firstLine = false;
     }
     
     inFile.close();
     outFile.close();
     
-    cout << "\nСодержимое выходного файла:\n";
+    cout << "\noutput file content:\n";
     ifstream resultFile(outputFile);
     
     if (resultFile) {
@@ -55,7 +54,7 @@ int main() {
         }
         
         if (isEmpty) {
-            cout << "(файл пуст)" << endl;
+            cout << "(file is empty)" << endl;
         }
         
         resultFile.close();
