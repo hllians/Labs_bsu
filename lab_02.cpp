@@ -16,7 +16,7 @@ int main() {
         cin >> n;
     } while (n < 1 || n > MAX_SIZE);
 
-    cout << "Filling method (1 - manual, 2 - random): ";
+    cout << "Filling method (1 - manual, not 1 - random): ";
     cin >> choice;
     
     if (choice == 1) {
