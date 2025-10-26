@@ -27,4 +27,5 @@ int main() {
     cout << fixed << setprecision(k);
     cout << "Ряд Тейлора:  ch(" << x << ") = " << sum << endl;
     cout << "Стандартная:  ch(" << x << ") = " << exact << endl;
+    cout << "Разница:  " << fabs(sum - exact) << endl;
 }
