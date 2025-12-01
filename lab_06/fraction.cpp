@@ -1,6 +1,5 @@
 #include "fraction.h"
 #include <iostream>
-#include <stdexcept>
 #include <cmath>
 
 int gcd(int a, int b) {

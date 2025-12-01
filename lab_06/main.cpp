@@ -6,7 +6,7 @@ int main() {
     Fraction f2(2, 8);
     
     std::cout << "f1 = "; f1.print(); std::cout << std::endl;
-    std::cout << "f2 = "; f2.print(); std::cout << std::endl;
+    std::cout << "f2 (created as 2/8) = "; f2.print(); std::cout << std::endl;
     
     Fraction f3(f1);
     std::cout << "f3 = "; f3.print(); std::cout << std::endl;
