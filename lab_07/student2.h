@@ -9,7 +9,7 @@ private:
     
 public:
     Student2(const char* name, int course, const char* group, 
-             const char* recordBook, const int marks1[4], const int marks2[5]);
+             const char* zachetka, const int marks1[4], const int marks2[5]);
     Student2(const Student2& other);
     
     Student2() = delete;
@@ -19,8 +19,9 @@ public:
     
     void print(std::ostream& os) const override;
     double getAverage() const override;
+    double getAverageFirstSession() const override;
     
-    friend double groupAvg2(Student2* students[], int count, const char* group);  // БЕЗ const
+    friend double groupAvg2(Student2* students[], int count, const char* group);
 };
 
 #endif

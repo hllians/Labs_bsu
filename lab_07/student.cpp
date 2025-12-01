@@ -2,13 +2,13 @@
 
 int Student::nextId = 1;
 
-Student::Student(const char* name, int course, const char* group, const char* recordBook) 
+Student::Student(const char* name, int course, const char* group, const char* zachetka) 
     : course(course), id(nextId++) {
     
     this->name = new char[strlen(name) + 1];
     strcpy(this->name, name);
     strcpy(this->group, group);
-    strcpy(this->recordBook, recordBook);
+    strcpy(this->zachetka, zachetka);
 }
 
 Student::Student(const Student& other) 
@@ -17,7 +17,7 @@ Student::Student(const Student& other)
     name = new char[strlen(other.name) + 1];
     strcpy(name, other.name);
     strcpy(group, other.group);
-    strcpy(recordBook, other.recordBook);
+    strcpy(zachetka, other.zachetka);
 }
 
 Student::~Student() {
@@ -40,10 +40,10 @@ void Student::setGroup(const char* group) {
 
 void Student::print(std::ostream& os) const {
     os << "ID: " << id << "\n";
-    os << "Name: " << name << "\n";
-    os << "Course: " << course << "\n";
-    os << "Group: " << group << "\n";
-    os << "Record Book: " << recordBook << "\n";
+    os << "name: " << name << "\n";
+    os << "course: " << course << "\n";
+    os << "group: " << group << "\n";
+    os << "zachetka: " << zachetka << "\n";
 }
 
 std::ostream& operator<<(std::ostream& os, const Student& student) {
