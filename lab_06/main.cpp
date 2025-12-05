@@ -22,8 +22,8 @@ int main() {
     try {
         Fraction err(1, 0);
         std::cout << "success (should not happen!)" << std::endl;
-    } catch (...) {
-        std::cout << "error: zero denominator" << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "error: " << e.what() << std::endl;
     }
     
     try {
@@ -32,8 +32,8 @@ int main() {
         std::cout << "f1 / zero = ";
         f1.divide(zero).print();
         std::cout << std::endl;
-    } catch (...) {
-        std::cout << "error: division by zero" << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "error: " << e.what() << std::endl;
     }
     
     return 0;
